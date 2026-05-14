@@ -10,7 +10,7 @@ export function Footer() {
               </span>
             </a>
             <p className="text-sm leading-relaxed text-primary-foreground/70">
-              A community assistance initiative helping Hudson Valley and Westchester residents complete paperwork, organize documents, and connect with community resources.
+              Volunteer-led community assistance organization helping individuals and families navigate paperwork, access resources, and receive support across Hudson Valley and Westchester.
             </p>
           </div>
 
