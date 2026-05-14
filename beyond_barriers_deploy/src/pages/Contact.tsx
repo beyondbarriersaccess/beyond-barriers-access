@@ -1,13 +1,13 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import ContactSection from "@/components/sections/Contact";
+import { Contact } from "@/components/sections/Contact";
 
-export default function Contact() {
+export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col w-full">
       <Navbar />
       <main className="flex-1 w-full">
-        <ContactSection />
+        <Contact />
       </main>
       <Footer />
     </div>
