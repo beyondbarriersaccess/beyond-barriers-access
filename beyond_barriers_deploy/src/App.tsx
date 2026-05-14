@@ -5,11 +5,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
-import About from "@/pages/about";
-import Services from "@/pages/services";
-import Eligibility from "@/pages/eligibility";
-import Resources from "@/pages/resources";
-import Contact from "@/pages/contact";
+import About from "@/pages/About";
+import Services from "@/pages/Services";
+import Eligibility from "@/pages/Eligibility";
+import Resources from "@/pages/Resources";
+import Contact from "@/pages/Contact";
 
 const queryClient = new QueryClient();
 
