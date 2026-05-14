@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Beyond Barriers Access"
+version = "1.0.0"
+id = "artifacts/beyond-barriers"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25627
+
+[services.development]
+run = "pnpm --filter @workspace/beyond-barriers run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/beyond-barriers", "run", "build" ]
+publicDir = "artifacts/beyond-barriers/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25627"
+BASE_PATH = "/"
