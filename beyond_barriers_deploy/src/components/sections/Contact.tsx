@@ -6,7 +6,14 @@ import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
@@ -14,7 +21,9 @@ const formSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   county: z.string().min(2, "County is required"),
   service: z.string().min(2, "Please describe what you need help with"),
-  message: z.string().min(10, "Please provide a brief description of your situation"),
+  message: z
+    .string()
+    .min(10, "Please provide a brief description of your situation"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -33,14 +42,42 @@ export function Contact() {
     },
   });
 
-  const onSubmit = (_data: FormValues) => {
-    setTimeout(() => {
+  const onSubmit = async (data: FormValues) => {
+    try {
+      const response = await fetch("https://formspree.io/f/xlgzylyv", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          county: data.county,
+          service: data.service,
+          message: data.message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
       toast({
         title: "Inquiry received",
-        description: "Thank you for reaching out. We will follow up with you by email as soon as possible.",
+        description:
+          "Thank you for reaching out. We will follow up with you by email as soon as possible.",
       });
+
       form.reset();
-    }, 500);
+    } catch (error) {
+      toast({
+        title: "Submission failed",
+        description:
+          "Your form could not be sent. Please email beyondbarriersaccess@gmail.com directly.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -56,16 +93,21 @@ export function Contact() {
             <h2 className="text-4xl font-bold font-serif text-foreground mb-6">
               Get in <span className="text-accent">touch.</span>
             </h2>
+
             <p className="text-lg text-muted-foreground mb-10">
-              Fill out the intake form and we will follow up to schedule an appointment. You can also email us directly.
+              Fill out the intake form and we will follow up to schedule an
+              appointment. You can also email us directly.
             </p>
 
             <div className="flex items-start gap-4 mb-8">
               <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent flex-shrink-0">
                 <Mail className="w-6 h-6" />
               </div>
+
               <div>
-                <h4 className="text-lg font-bold text-foreground mb-1">Email</h4>
+                <h4 className="text-lg font-bold text-foreground mb-1">
+                  Email
+                </h4>
                 <a
                   href="mailto:beyondbarriersaccess@gmail.com"
                   className="text-accent hover:underline"
@@ -77,8 +119,21 @@ export function Contact() {
             </div>
 
             <div className="bg-card border border-border rounded-xl p-5 text-sm text-muted-foreground leading-relaxed">
-              <strong className="text-foreground block mb-1">Please note</strong>
-              We do not provide legal advice, legal representation, immigration services, or tax preparation. We provide paperwork assistance and resource navigation only.
+              <strong className="text-foreground block mb-1">
+                Please note
+              </strong>
+              We do not provide legal advice, legal representation, immigration
+              services, or tax preparation. We provide paperwork assistance and
+              resource navigation only.
+            </div>
+
+            <div className="bg-card border border-border rounded-xl p-5 text-sm text-muted-foreground leading-relaxed mt-4">
+              <strong className="text-foreground block mb-1">
+                Privacy reminder
+              </strong>
+              Please do not include Social Security numbers, Medicaid IDs, bank
+              account information, or highly sensitive personal information in
+              this form.
             </div>
           </motion.div>
 
@@ -89,7 +144,9 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-card rounded-2xl p-8 shadow-xl border border-border"
           >
-            <h3 className="text-2xl font-bold text-foreground mb-6">Intake Form</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-6">
+              Intake Form
+            </h3>
 
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -101,12 +158,18 @@ export function Contact() {
                       <FormItem>
                         <FormLabel>Your Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Full name" {...field} className="bg-background" data-testid="input-name" />
+                          <Input
+                            placeholder="Full name"
+                            {...field}
+                            className="bg-background"
+                            data-testid="input-name"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+
                   <FormField
                     control={form.control}
                     name="email"
@@ -114,7 +177,13 @@ export function Contact() {
                       <FormItem>
                         <FormLabel>Email Address</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="Your email" {...field} className="bg-background" data-testid="input-email" />
+                          <Input
+                            type="email"
+                            placeholder="Your email"
+                            {...field}
+                            className="bg-background"
+                            data-testid="input-email"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -129,7 +198,12 @@ export function Contact() {
                     <FormItem>
                       <FormLabel>County of Residence</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g. Ulster County" {...field} className="bg-background" data-testid="input-county" />
+                        <Input
+                          placeholder="e.g. Ulster County"
+                          {...field}
+                          className="bg-background"
+                          data-testid="input-county"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -143,7 +217,12 @@ export function Contact() {
                     <FormItem>
                       <FormLabel>What do you need help with?</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g. Benefits application, hardship letter" {...field} className="bg-background" data-testid="input-service" />
+                        <Input
+                          placeholder="e.g. Benefits application, hardship letter"
+                          {...field}
+                          className="bg-background"
+                          data-testid="input-service"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -168,6 +247,13 @@ export function Contact() {
                     </FormItem>
                   )}
                 />
+
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  By submitting this form, you understand that Beyond Barriers
+                  Access provides paperwork assistance and resource navigation
+                  only, and does not provide legal advice, legal representation,
+                  immigration services, or tax preparation.
+                </p>
 
                 <Button
                   type="submit"
