@@ -14,7 +14,6 @@ export function Hero() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -83,7 +82,6 @@ export function Hero() {
             </p>
           </motion.div>
 
-          {/* RIGHT SIDE */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -96,7 +94,26 @@ export function Hero() {
               className="w-full h-full object-cover"
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-[#173d2d]/70 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#173d2d]/75 via-transparent to-transparent" />
+
+            <div className="absolute top-6 right-6 z-20 flex gap-3">
+              <div className="w-14 h-14 rounded-full bg-[#f7f3ea] shadow-lg flex items-center justify-center">
+                <Leaf className="w-7 h-7 text-primary" />
+              </div>
+              <div className="w-14 h-14 rounded-full bg-[#f7f3ea] shadow-lg flex items-center justify-center">
+                <Heart className="w-7 h-7 text-accent" />
+              </div>
+            </div>
+
+            <div className="absolute bottom-8 left-8 right-8 z-20">
+              <blockquote className="text-white text-3xl lg:text-4xl font-serif italic font-semibold drop-shadow-md leading-tight">
+                You don&apos;t have to navigate it alone.
+              </blockquote>
+
+              <p className="text-white/95 text-lg lg:text-xl mt-4 drop-shadow-sm">
+                Here to help. Here for our community.
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>
