@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-background">
-      {/* decorative background icons */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Leaf className="absolute right-[8%] top-[10%] w-24 h-24 text-primary/10 rotate-12" />
         <Leaf className="absolute left-[3%] bottom-[10%] w-20 h-20 text-accent/10 -rotate-12" />
@@ -15,7 +14,6 @@ export function Hero() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,18 +82,37 @@ export function Hero() {
             </p>
           </motion.div>
 
-          {/* RIGHT SIDE HERO CARD */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative h-[500px] lg:h-[620px] rounded-3xl overflow-hidden shadow-2xl"
           >
             <img
               src="/branding/hero-card.png"
               alt="Beyond Barriers Access"
-              className="w-full h-auto rounded-3xl shadow-2xl block"
+              className="absolute inset-0 w-full h-full object-cover"
             />
+
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/35 to-transparent" />
+
+            <div className="absolute top-6 right-6 z-20 flex gap-3">
+              <div className="w-14 h-14 rounded-full bg-background shadow-lg flex items-center justify-center">
+                <Leaf className="w-7 h-7 text-primary" />
+              </div>
+              <div className="w-14 h-14 rounded-full bg-background shadow-lg flex items-center justify-center">
+                <Heart className="w-7 h-7 text-accent" />
+              </div>
+            </div>
+
+            <div className="absolute bottom-8 left-8 right-8 z-20">
+              <blockquote className="text-white text-3xl font-serif italic font-semibold drop-shadow-md leading-tight">
+                You don&apos;t have to navigate it alone.
+              </blockquote>
+              <p className="text-white/95 text-xl mt-4 drop-shadow-sm">
+                Here to help. Here for our community.
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>
