@@ -96,11 +96,13 @@ export function Hero() {
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/85 via-primary/30 to-transparent mix-blend-multiply z-10" />
 
-            <img
-  src="/business-card-logo.png"
-  alt="Beyond Barriers Access"
-  className="w-full h-full object-contain p-10 bg-gradient-to-br from-[#1f5c3f] via-[#234f39] to-[#b55a32]"
-/>
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1f5c3f] via-[#234f39] to-[#b55a32]">
+  <img
+    src="/business-card-logo.png"
+    alt="Beyond Barriers Access"
+    className="w-[320px] h-auto drop-shadow-2xl"
+  />
+</div>
 
             <div className="absolute top-6 right-6 z-20 flex gap-3">
               <div className="w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center shadow-md">
