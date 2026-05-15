@@ -7,9 +7,6 @@ export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-background">
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute -top-[20%] -right-[10%] w-[45%] h-[45%] rounded-full bg-primary/5" />
-        <div className="absolute bottom-[10%] -left-[10%] w-[35%] h-[35%] rounded-full bg-accent/5" />
-
         <Leaf className="absolute right-[8%] top-[18%] w-24 h-24 text-primary/10 rotate-12" />
         <Leaf className="absolute left-[5%] bottom-[18%] w-20 h-20 text-accent/10 -rotate-12" />
         <Heart className="absolute right-[18%] bottom-[16%] w-16 h-16 text-accent/15" />
@@ -38,38 +35,27 @@ export function Hero() {
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
-              Beyond Barriers Access helps Hudson Valley and Westchester
-              residents navigate paperwork, organize documents, and connect with
-              essential community resources.
+              Beyond Barriers Access helps Hudson Valley and Westchester residents
+              navigate paperwork, organize documents, and connect with essential
+              community resources.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="text-base h-13 px-7 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md"
-                >
+                <Button size="lg" className="text-base h-13 px-7 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md">
                   Get Help
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
 
               <Link href="/resources">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-base h-13 px-7 border-primary/30 hover:bg-primary/5 font-semibold"
-                >
+                <Button size="lg" variant="outline" className="text-base h-13 px-7 border-primary/30 hover:bg-primary/5 font-semibold">
                   Find Resources
                 </Button>
               </Link>
 
               <Link href="/contact">
-                <Button
-                  size="lg"
-                  variant="ghost"
-                  className="text-base h-13 px-7 font-semibold text-foreground/70 hover:text-foreground"
-                >
+                <Button size="lg" variant="ghost" className="text-base h-13 px-7 font-semibold text-foreground/70 hover:text-foreground">
                   Contact Us
                 </Button>
               </Link>
@@ -80,8 +66,12 @@ export function Hero() {
             </p>
           </motion.div>
 
-          <motion.div className="relative h-[500px] lg:h-[620px] max-w-[520px] mx-auto rounded-3xl overflow-hidden shadow-xl border border-primary/10 bg-card">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1f5c3f] via-[#234f39] to-[#b55a32]" />
+          <motion.div className="relative h-[500px] lg:h-[620px] rounded-3xl overflow-hidden shadow-xl bg-[#f8f7f2]">
+            <img
+              src="/branding/beyond-barriers-card.png"
+              alt="Beyond Barriers Access"
+              className="absolute inset-0 w-full h-full object-contain p-6"
+            />
 
             <div className="absolute top-6 right-6 z-20 flex gap-3">
               <div className="w-12 h-12 rounded-full bg-background/90 flex items-center justify-center shadow-md">
@@ -92,21 +82,15 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="relative z-10 flex h-full flex-col items-center justify-center px-6">
-              <img
-                src="/branding/beyond-barriers-card.png"
-                alt="Beyond Barriers Access"
-                className="w-[85%] max-w-[420px] h-auto drop-shadow-md"
-              />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
 
-              <div className="absolute bottom-8 left-8 right-8">
-                <blockquote className="text-background text-2xl font-serif italic leading-snug">
-                  You don&apos;t have to navigate it alone.
-                </blockquote>
-                <p className="text-background/80 mt-3 text-lg">
-                  Here to help. Here for our community.
-                </p>
-              </div>
+            <div className="absolute bottom-8 left-8 right-8 z-20">
+              <blockquote className="text-white text-2xl font-serif italic leading-snug">
+                You don&apos;t have to navigate it alone.
+              </blockquote>
+              <p className="text-white/90 mt-3 text-lg">
+                Here to help. Here for our community.
+              </p>
             </div>
           </motion.div>
         </div>
