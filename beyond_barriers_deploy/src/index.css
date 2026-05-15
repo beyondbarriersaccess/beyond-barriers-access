@@ -77,14 +77,14 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
 
-  --background: 39 45% 95%;
+  --background: 42 38% 94%;
   --foreground: 30 10% 16%;
   --border: 34 25% 82%;
   --card: 38 42% 98%;
   --card-foreground: 30 10% 16%;
   --card-border: 34 25% 82%;
 
-  --sidebar: 39 45% 95%;
+  --sidebar: 42 38% 94%;
   --sidebar-foreground: 30 10% 16%;
   --sidebar-border: 34 25% 82%;
   --sidebar-primary: 151 41% 21%;

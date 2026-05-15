@@ -1,20 +1,27 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Heart, Leaf, MapPin, Sprout } from "lucide-react";
+import { Heart, Leaf, MapPin, Sprout, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-background">
+      {/* decorative background icons */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Leaf className="absolute right-[8%] top-[18%] w-24 h-24 text-primary/10 rotate-12" />
-        <Leaf className="absolute left-[5%] bottom-[18%] w-20 h-20 text-accent/10 -rotate-12" />
-        <Heart className="absolute right-[18%] bottom-[16%] w-16 h-16 text-accent/15" />
+        <Leaf className="absolute right-[8%] top-[10%] w-24 h-24 text-primary/10 rotate-12" />
+        <Leaf className="absolute left-[3%] bottom-[10%] w-20 h-20 text-accent/10 -rotate-12" />
+        <Heart className="absolute right-[20%] bottom-[8%] w-16 h-16 text-accent/10" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div className="max-w-2xl">
+          {/* LEFT SIDE */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl"
+          >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-8 border border-primary/10">
               <MapPin className="w-4 h-4" />
               <span>Hudson Valley &amp; Westchester</span>
@@ -42,20 +49,31 @@ export function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/contact">
-                <Button size="lg" className="text-base h-13 px-7 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md">
+                <Button
+                  size="lg"
+                  className="text-base h-13 px-7 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md"
+                >
                   Get Help
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
 
               <Link href="/resources">
-                <Button size="lg" variant="outline" className="text-base h-13 px-7 border-primary/30 hover:bg-primary/5 font-semibold">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-base h-13 px-7 border-primary/30 hover:bg-primary/5 font-semibold"
+                >
                   Find Resources
                 </Button>
               </Link>
 
               <Link href="/contact">
-                <Button size="lg" variant="ghost" className="text-base h-13 px-7 font-semibold text-foreground/70 hover:text-foreground">
+                <Button
+                  size="lg"
+                  variant="ghost"
+                  className="text-base h-13 px-7 font-semibold text-foreground/70 hover:text-foreground"
+                >
                   Contact Us
                 </Button>
               </Link>
@@ -66,32 +84,18 @@ export function Hero() {
             </p>
           </motion.div>
 
-          <motion.div className="relative h-[500px] lg:h-[620px] rounded-3xl overflow-hidden shadow-xl bg-[#f8f7f2]">
+          {/* RIGHT SIDE HERO CARD */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
             <img
-              src="/branding/beyond-barriers-card.png"
+              src="/branding/hero-card.png"
               alt="Beyond Barriers Access"
-              className="absolute inset-0 w-full h-full object-contain p-6"
+              className="w-full h-auto rounded-3xl shadow-2xl block"
             />
-
-            <div className="absolute top-6 right-6 z-20 flex gap-3">
-              <div className="w-12 h-12 rounded-full bg-background/90 flex items-center justify-center shadow-md">
-                <Leaf className="w-6 h-6 text-primary" />
-              </div>
-              <div className="w-12 h-12 rounded-full bg-background/90 flex items-center justify-center shadow-md">
-                <Heart className="w-6 h-6 text-accent fill-accent/20" />
-              </div>
-            </div>
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-
-            <div className="absolute bottom-8 left-8 right-8 z-20">
-              <blockquote className="text-white text-2xl font-serif italic leading-snug">
-                You don&apos;t have to navigate it alone.
-              </blockquote>
-              <p className="text-white/90 mt-3 text-lg">
-                Here to help. Here for our community.
-              </p>
-            </div>
           </motion.div>
         </div>
       </div>
