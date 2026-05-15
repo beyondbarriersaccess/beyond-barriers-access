@@ -98,9 +98,9 @@ export function Hero() {
 
             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1f5c3f] via-[#234f39] to-[#b55a32]">
   <img
-    src="/business-card-logo.png"
+    src="/branding/beyond-barriers-card.png"
     alt="Beyond Barriers Access"
-    className="w-[320px] h-auto drop-shadow-2xl"
+    className="w-[420px] h-auto drop-shadow-2xl"
   />
 </div>
 
